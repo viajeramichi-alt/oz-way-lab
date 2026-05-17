@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>プライバシーポリシー | Oz Way Lab.</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --amber: #C8841E;
+  --amber-light: #E8B45A;
+  --amber-dark: #7A4E10;
+  --cream: #FDFAF2;
+  --cream-warm: #F8F0DC;
+  --parchment: #E8D9B4;
+  --ink: #1A1208;
+  --ink-mid: #3D2E18;
+  --ink-light: #6B5538;
+  --silver: #8A9AA8;
+  --gold-line: rgba(200,132,30,0.2);
+  --container-px: clamp(20px, 5vw, 56px);
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ナビ */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 500;
+  background: rgba(253,250,242,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--gold-line);
+  height: 60px;
+  display: flex;
+  align-items: center;
+  padding: 0 var(--container-px);
+  justify-content: space-between;
+}
+
+.nav__back {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Jost', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.nav__back::before { content: '←'; color: var(--amber); }
+.nav__back:hover { color: var(--amber); }
+
+.nav__logo {
+  font-family: 'Cormorant', serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: 0.05em;
+  text-decoration: none;
+}
+
+.nav__logo em { font-style: italic; color: var(--amber); }
+
+/* ページ本体 */
+.page-wrap {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 100px var(--container-px) 80px;
+}
+
+/* ヘッダー */
+.page-header {
+  margin-bottom: 56px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--gold-line);
+}
+
+.page-header__label {
+  font-family: 'Jost', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.page-header__label::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: var(--amber-light);
+}
+
+.page-header__title {
+  font-family: 'Cormorant', serif;
+  font-size: clamp(32px, 6vw, 52px);
+  font-weight: 300;
+  line-height: 1.2;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  margin-bottom: 16px;
+}
+
+.page-header__title em {
+  font-style: italic;
+  color: var(--amber);
+}
+
+.page-header__meta {
+  font-family: 'Jost', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: var(--silver);
+}
+
+/* セクション */
+.policy-section {
+  margin-bottom: 48px;
+}
+
+.policy-section:last-child { margin-bottom: 0; }
+
+.policy-section__num {
+  font-family: 'Cormorant', serif;
+  font-size: 11px;
+  font-style: italic;
+  letter-spacing: 0.2em;
+  color: var(--amber);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.policy-section__num::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--gold-line);
+}
+
+.policy-section__title {
+  font-family: 'Cormorant', serif;
+  font-size: clamp(20px, 3vw, 26px);
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 16px;
+  letter-spacing: 0.02em;
+}
+
+.policy-section__body {
+  font-size: 14px;
+  line-height: 2.3;
+  color: var(--ink-mid);
+}
+
+.policy-section__body p {
+  margin-bottom: 14px;
+}
+
+.policy-section__body p:last-child { margin-bottom: 0; }
+
+.policy-section__body ul {
+  padding-left: 0;
+  list-style: none;
+  margin: 12px 0;
+}
+
+.policy-section__body ul li {
+  padding: 8px 0 8px 20px;
+  border-bottom: 1px solid var(--gold-line);
+  position: relative;
+  font-size: 13px;
+  color: var(--ink-mid);
+  line-height: 1.8;
+}
+
+.policy-section__body ul li:first-child { border-top: 1px solid var(--gold-line); }
+
+.policy-section__body ul li::before {
+  content: '✦';
+  position: absolute;
+  left: 0;
+  font-size: 8px;
+  color: var(--amber);
+  top: 12px;
+}
+
+.policy-section__body a {
+  color: var(--amber-dark);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s;
+}
+
+.policy-section__body a:hover { color: var(--amber); }
+
+/* お問い合わせボックス */
+.contact-box {
+  margin-top: 56px;
+  padding: 32px;
+  background: var(--cream-warm);
+  border: 1px solid var(--gold-line);
+  border-left: 3px solid var(--amber);
+  text-align: center;
+}
+
+.contact-box__text {
+  font-size: 14px;
+  line-height: 2;
+  color: var(--ink-mid);
+  margin-bottom: 20px;
+}
+
+.contact-box__btn {
+  display: inline-block;
+  padding: 13px 32px;
+  background: var(--amber);
+  font-family: 'Jost', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: white;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.contact-box__btn:hover { background: var(--amber-dark); }
+
+/* フッター */
+.footer {
+  background: var(--ink);
+  padding: 28px var(--container-px);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  text-align: center;
+  margin-top: 80px;
+}
+
+.footer__logo {
+  font-family: 'Cormorant', serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--amber-light);
+  text-decoration: none;
+}
+
+.footer__copy {
+  font-family: 'Jost', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: rgba(253,250,242,0.25);
+}
+
+@media (min-width: 768px) {
+  .nav { height: 68px; }
+  .page-wrap { padding-top: 120px; }
+  .footer {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ナビ -->
+<header class="nav">
+  <a href="index.html" class="nav__back">Oz Way Lab.</a>
+  <a href="index.html" class="nav__logo">Oz Way <em>Lab.</em></a>
+</header>
+
+<!-- 本文 -->
+<main class="page-wrap">
+
+  <div class="page-header">
+    <p class="page-header__label">Legal</p>
+    <h1 class="page-header__title">プライバシー<em>ポリシー</em></h1>
+    <p class="page-header__meta">制定日：2026年6月6日　／　運営者：Oz Way Lab.　Michiyo</p>
+  </div>
+
+  <!-- 1 -->
+  <div class="policy-section">
+    <p class="policy-section__num">01</p>
+    <h2 class="policy-section__title">個人情報の取得について</h2>
+    <div class="policy-section__body">
+      <p>当サイトでは、お問い合わせフォームをご利用いただく際に、以下の個人情報を取得します。</p>
+      <ul>
+        <li>お名前</li>
+        <li>メールアドレス</li>
+        <li>会社名・屋号（任意）</li>
+        <li>お問い合わせ内容</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 2 -->
+  <div class="policy-section">
+    <p class="policy-section__num">02</p>
+    <h2 class="policy-section__title">個人情報の利用目的について</h2>
+    <div class="policy-section__body">
+      <p>取得した個人情報は、以下の目的にのみ使用いたします。</p>
+      <ul>
+        <li>お問い合わせへの返答</li>
+        <li>お見積もりのご連絡</li>
+        <li>業務上の必要な連絡</li>
+      </ul>
+      <p>上記以外の目的で個人情報を使用することはありません。</p>
+    </div>
+  </div>
+
+  <!-- 3 -->
+  <div class="policy-section">
+    <p class="policy-section__num">03</p>
+    <h2 class="policy-section__title">個人情報の第三者提供について</h2>
+    <div class="policy-section__body">
+      <p>取得した個人情報は、以下の場合を除き第三者に提供することはありません。</p>
+      <ul>
+        <li>ご本人の同意が得られた場合</li>
+        <li>法令により開示が求められた場合</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 4 -->
+  <div class="policy-section">
+    <p class="policy-section__num">04</p>
+    <h2 class="policy-section__title">個人情報の管理について</h2>
+    <div class="policy-section__body">
+      <p>取得した個人情報は適切に管理し、紛失・漏洩・改ざん等が起きないよう努めます。お問い合わせ内容はFormspreeを通じて送信されます。Formspreeのプライバシーポリシーについては<a href="https://formspree.io/legal/privacy-policy/" target="_blank" rel="noopener">Formspree公式サイト</a>をご確認ください。</p>
+    </div>
+  </div>
+
+  <!-- 5 -->
+  <div class="policy-section">
+    <p class="policy-section__num">05</p>
+    <h2 class="policy-section__title">Cookieについて</h2>
+    <div class="policy-section__body">
+      <p>当サイトでは現在Cookieを使用しておりません。将来的にアクセス解析ツールを導入する場合は、本ポリシーを更新してご案内いたします。</p>
+    </div>
+  </div>
+
+  <!-- 6 -->
+  <div class="policy-section">
+    <p class="policy-section__num">06</p>
+    <h2 class="policy-section__title">免責事項</h2>
+    <div class="policy-section__body">
+      <p>当サイトのコンテンツは可能な限り正確な情報を提供するよう努めておりますが、その正確性・完全性を保証するものではありません。当サイトの情報に基づいて生じたいかなる損害についても、運営者は一切の責任を負いかねます。</p>
+      <p>また当サイトからリンクされた外部サイトは当サイトが管理するものではなく、その内容について責任を負いかねますのであらかじめご了承ください。</p>
+    </div>
+  </div>
+
+  <!-- 7 -->
+  <div class="policy-section">
+    <p class="policy-section__num">07</p>
+    <h2 class="policy-section__title">著作権について</h2>
+    <div class="policy-section__body">
+      <p>当サイトに掲載されているテキスト・画像・デザイン等の著作権はOz Way Lab.に帰属します。無断転載・複製・改変等はご遠慮ください。</p>
+    </div>
+  </div>
+
+  <!-- 8 -->
+  <div class="policy-section">
+    <p class="policy-section__num">08</p>
+    <h2 class="policy-section__title">プライバシーポリシーの変更について</h2>
+    <div class="policy-section__body">
+      <p>本ポリシーは必要に応じて変更することがあります。変更後は当サイトに掲載した時点で効力を生じるものとします。</p>
+    </div>
+  </div>
+
+  <!-- お問い合わせ -->
+  <div class="contact-box">
+    <p class="contact-box__text">本ポリシーに関するお問い合わせは、<br>お問い合わせフォームよりご連絡ください。</p>
+    <a href="index.html#contact" class="contact-box__btn">お問い合わせフォームへ →</a>
+  </div>
+
+</main>
+
+<!-- フッター -->
+<footer class="footer">
+  <a href="index.html" class="footer__logo">Oz Way Lab.</a>
+  <p class="footer__copy">© 2026 Oz Way Lab. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

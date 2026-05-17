@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio | Oz Way Lab. — Michiyo</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Jost:wght@200;300;400;500&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --amber: #C8841E;
+  --amber-light: #E8B45A;
+  --amber-pale: #F5D98A;
+  --amber-dark: #7A4E10;
+  --cream: #FDFAF2;
+  --cream-warm: #F8F0DC;
+  --cream-deep: #EFE4C4;
+  --parchment: #E8D9B4;
+  --ink: #1A1208;
+  --ink-mid: #3D2E18;
+  --ink-light: #6B5538;
+  --silver: #8A9AA8;
+  --gold-line: rgba(200,132,30,0.2);
+  --container-px: clamp(20px, 5vw, 56px);
+  --max-width: 1080px;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+
+/* ========== ナビ ========== */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 500;
+  background: rgba(253,250,242,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--gold-line);
+  height: 60px;
+  display: flex;
+  align-items: center;
+  padding: 0 var(--container-px);
+  justify-content: space-between;
+}
+
+.nav__back {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Jost', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+  transition: color 0.3s;
+}
+
+.nav__back:hover { color: var(--amber); }
+
+.nav__back::before {
+  content: '←';
+  font-size: 14px;
+  color: var(--amber);
+}
+
+.nav__logo {
+  font-family: 'Cormorant', serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: 0.05em;
+}
+
+.nav__logo em {
+  font-style: italic;
+  color: var(--amber);
+}
+
+/* ========== ヘッダー ========== */
+.page-header {
+  padding: 120px var(--container-px) 64px;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.page-header__label {
+  font-family: 'Jost', sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--amber);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.page-header__label::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: var(--amber-light);
+}
+
+.page-header__title {
+  font-family: 'Cormorant', serif;
+  font-size: clamp(40px, 7vw, 72px);
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+}
+
+.page-header__title em {
+  font-style: italic;
+  font-weight: 600;
+  color: var(--amber);
+}
+
+.page-header__desc {
+  margin-top: 20px;
+  font-size: 14px;
+  line-height: 2;
+  color: var(--ink-light);
+  max-width: 560px;
+}
+
+/* ========== 仕切り ========== */
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-line) 20%, var(--gold-line) 80%, transparent);
+}
+
+/* ========== グリッドエリア ========== */
+.works-area {
+  padding: 0 var(--container-px) 80px;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+/* ========== フィーチャーカード（Bakery - 大） ========== */
+.work-featured {
+  margin: 56px 0 20px;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  background: var(--ink);
+}
+
+.work-featured__thumb {
+  width: 100%;
+  aspect-ratio: 16/8;
+  overflow: hidden;
+  position: relative;
+}
+
+.work-featured__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  transition: transform 0.6s ease;
+  display: block;
+}
+
+.work-featured:hover .work-featured__thumb img {
+  transform: scale(1.03);
+}
+
+.work-featured__overlay {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: clamp(20px, 4vw, 40px);
+  background: linear-gradient(to top, rgba(26,18,8,0.9) 0%, transparent 100%);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 20px;
+}
+
+.work-featured__info {}
+
+.work-featured__cat {
+  font-family: 'Jost', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--amber-light);
+  margin-bottom: 6px;
+}
+
+.work-featured__title {
+  font-family: 'Cormorant', serif;
+  font-size: clamp(24px, 4vw, 40px);
+  font-weight: 600;
+  color: white;
+  letter-spacing: 0.02em;
+}
+
+.work-featured__btn {
+  flex-shrink: 0;
+  padding: 12px 24px;
+  border: 1px solid var(--amber);
+  font-family: 'Jost', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--amber-light);
+  white-space: nowrap;
+  transition: all 0.3s;
+}
+
+.work-featured:hover .work-featured__btn {
+  background: var(--amber);
+  color: var(--ink);
+}
+
+/* ========== 小グリッド（4点） ========== */
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.work-card {
+  cursor: pointer;
+  overflow: hidden;
+  background: white;
+  border: 1px solid var(--gold-line);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.work-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(26,18,8,0.12);
+}
+
+.work-card__thumb {
+  width: 100%;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  background: var(--cream-deep);
+}
+
+.work-card__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  transition: transform 0.5s ease;
+}
+
+.work-card:hover .work-card__thumb img {
+  transform: scale(1.05);
+}
+
+.work-card__body {
+  padding: 16px 18px;
+  border-top: 1px solid var(--gold-line);
+}
+
+.work-card__cat {
+  font-family: 'Jost', sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 4px;
+}
+
+.work-card__title {
+  font-family: 'Cormorant', serif;
+  font-size: clamp(16px, 2.5vw, 20px);
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: 0.02em;
+}
+
+/* ========== モーダル ========== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(26,18,8,0.85);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 20px;
+  overflow-y: auto;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s;
+}
+
+.modal-overlay.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal {
+  background: var(--cream);
+  width: 100%;
+  max-width: 860px;
+  margin: auto;
+  position: relative;
+  transform: translateY(24px);
+  transition: transform 0.35s;
+}
+
+.modal-overlay.is-open .modal {
+  transform: translateY(0);
+}
+
+.modal__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 40px;
+  height: 40px;
+  background: var(--ink);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: background 0.2s;
+}
+
+.modal__close:hover { background: var(--amber-dark); }
+
+.modal__close::before,
+.modal__close::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 1.5px;
+  background: white;
+}
+
+.modal__close::before { transform: rotate(45deg); }
+.modal__close::after { transform: rotate(-45deg); }
+
+/* スライダー */
+.modal__slider {
+  position: relative;
+  background: var(--ink);
+  overflow: hidden;
+}
+
+.modal__slides {
+  display: flex;
+  transition: transform 0.4s ease;
+}
+
+.modal__slide {
+  min-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.modal__slide img {
+  max-height: 60vh;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+/* スライドナビ */
+.modal__nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 16px;
+  background: var(--ink);
+  border-top: 1px solid rgba(200,132,30,0.2);
+  flex-wrap: wrap;
+}
+
+.modal__fullsize {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  background: rgba(200,132,30,0.1);
+  border: 1px solid rgba(200,132,30,0.3);
+  font-family: 'Jost', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--amber-light);
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+
+.modal__fullsize:hover {
+  background: var(--amber);
+  color: var(--ink);
+  border-color: var(--amber);
+}
+
+.modal__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+  padding: 0;
+}
+
+.modal__dot.is-active { background: var(--amber); }
+
+.modal__arrow {
+  background: none;
+  border: 1px solid rgba(200,132,30,0.4);
+  color: var(--amber-light);
+  font-family: 'Jost', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  padding: 6px 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.modal__arrow:hover {
+  background: var(--amber);
+  color: var(--ink);
+  border-color: var(--amber);
+}
+
+.modal__arrow:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+/* プロセス情報 */
+.modal__info {
+  padding: clamp(24px, 5vw, 48px);
+}
+
+.modal__title {
+  font-family: 'Cormorant', serif;
+  font-size: clamp(24px, 4vw, 36px);
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+.modal__cat {
+  font-family: 'Jost', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 28px;
+}
+
+.modal__process {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.process-item {}
+
+.process-item__label {
+  font-family: 'Jost', sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.process-item__label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--gold-line);
+}
+
+.process-item__text {
+  font-size: 14px;
+  line-height: 2;
+  color: var(--ink-mid);
+}
+
+.process-item__tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.tool-chip {
+  padding: 5px 12px;
+  border: 1px solid var(--gold-line);
+  font-family: 'Jost', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--ink-light);
+}
+
+/* ========== フッター ========== */
+.page-footer {
+  background: var(--ink);
+  padding: 32px var(--container-px);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  text-align: center;
+}
+
+.page-footer__logo {
+  font-family: 'Cormorant', serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--amber-light);
+}
+
+.page-footer__copy {
+  font-family: 'Jost', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: rgba(253,250,242,0.25);
+}
+
+/* ========== レスポンシブ ========== */
+@media (min-width: 768px) {
+  .nav { height: 68px; }
+
+  .works-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .modal__process {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 40px;
+  }
+
+  .page-footer {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+}
+
+@media (min-width: 1024px) {
+  .works-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ナビ -->
+<header class="nav">
+  <a href="index.html" class="nav__back">Oz Way Lab.</a>
+  <div class="nav__logo">Design <em>Works</em></div>
+</header>
+
+<!-- ページヘッダー -->
+<div class="page-header">
+  <p class="page-header__label">Portfolio</p>
+  <h1 class="page-header__title">制作の<em>足跡</em>を、<br>ご覧ください。</h1>
+  <p class="page-header__desc">Web制作からグラフィックデザインまで、現場マーケティングの視点で「伝わる」ビジュアルを制作しています。各作品のコンセプトと制作プロセスをご覧ください。</p>
+</div>
+
+<div class="divider"></div>
+
+<!-- 作品エリア -->
+<div class="works-area">
+
+  <!-- フィーチャー：Bakery Yamaguchi -->
+  <div class="work-featured" data-work="bakery">
+    <div class="work-featured__thumb">
+      <img src="images/work_bakery_web.png" alt="Bakery Yamaguchi Web Design">
+    </div>
+    <div class="work-featured__overlay">
+      <div class="work-featured__info">
+        <p class="work-featured__cat">Web Design</p>
+        <h2 class="work-featured__title">Bakery Yamaguchi</h2>
+      </div>
+      <div class="work-featured__btn">詳細を見る →</div>
+    </div>
+  </div>
+
+  <!-- 4点グリッド -->
+  <div class="works-grid">
+
+    <!-- フクバリ -->
+    <div class="work-card" data-work="fukubari">
+      <div class="work-card__thumb">
+        <img src="images/work_fukubari_design.png" alt="フクバリ テイクアウトチラシ">
+      </div>
+      <div class="work-card__body">
+        <p class="work-card__cat">Flyer</p>
+        <h2 class="work-card__title">フクバリ テイクアウト</h2>
+      </div>
+    </div>
+
+    <!-- タイヤDM -->
+    <div class="work-card" data-work="tire">
+      <div class="work-card__thumb">
+        <img src="images/work_tire.png" alt="タイヤセール DM">
+      </div>
+      <div class="work-card__body">
+        <p class="work-card__cat">Direct Mail</p>
+        <h2 class="work-card__title">タイヤセール DM</h2>
+      </div>
+    </div>
+
+    <!-- ワイナリー -->
+    <div class="work-card" data-work="winery">
+      <div class="work-card__thumb">
+        <img src="images/work_winery.png" alt="Winery Seya ロゴ・名刺">
+      </div>
+      <div class="work-card__body">
+        <p class="work-card__cat">Logo · Namecard</p>
+        <h2 class="work-card__title">Winery Seya</h2>
+      </div>
+    </div>
+
+    <!-- Bugs'cafe -->
+    <div class="work-card" data-work="bugs">
+      <div class="work-card__thumb">
+        <img src="images/work_bugs.png" alt="Bug's Cafe ショップカード">
+      </div>
+      <div class="work-card__body">
+        <p class="work-card__cat">Shop Card</p>
+        <h2 class="work-card__title">Bug's Cafe</h2>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- フッター -->
+<footer class="page-footer">
+  <div class="page-footer__logo">Oz Way Lab.</div>
+  <p class="page-footer__copy">© 2026 Michiyo / Oz Way Lab. All rights reserved.</p>
+</footer>
+
+<!-- ========== モーダル ========== -->
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <button class="modal__close" id="modalClose" aria-label="閉じる"></button>
+
+    <!-- スライダー -->
+    <div class="modal__slider">
+      <div class="modal__slides" id="modalSlides"></div>
+      <div class="modal__nav" id="modalNav"></div>
+      <a href="#" id="modalFullsize" class="modal__fullsize" target="_blank" rel="noopener">✦ フルサイズで見る</a>
+    </div>
+
+    <!-- プロセス情報 -->
+    <div class="modal__info">
+      <h2 class="modal__title" id="modalTitle"></h2>
+      <p class="modal__cat" id="modalCat"></p>
+      <div class="modal__process" id="modalProcess"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ========== 作品データ ==========
+const works = {
+  bakery: {
+    title: 'Bakery Yamaguchi',
+    cat: 'Web Design',
+    fullsize: 'images/work_bakery_web.png',
+    images: [
+      { src: 'images/work_bakery_web.png', label: 'Web Site' },
+      { src: 'images/work_bakery_pc.png', label: 'PC Design' },
+      { src: 'images/work_bakery_sp.png', label: 'SP Design' }
+    ],
+    target: '地元の食にこだわりを持つ30〜50代の女性',
+    concept: '素材の誠実さと、地域に根ざした温かさをそのままWebで表現する。キャッチコピー「うそのない、パン。」に象徴される無添加・天然酵母へのこだわりを、デザインの言葉で誠実に伝える。',
+    tools: ['Figma', 'HTML / CSS', 'Dreamweaver'],
+    point: 'ブランドカラーの琥珀色をメインに、アイボリーと白をベースとした70:25:5の配色設計。フォントはNoto Serif JP（見出し）×Noto Sans JP（本文）で和の品格と読みやすさを両立。「こだわり→クリームボックス→商品→アクセス」という購買導線を設計し、アレルギー情報の明記やGoogleマップ埋め込みなど、ユーザーが安心して行動できる情報設計を心がけた。'
+  },
+  fukubari: {
+    title: 'フクバリ テイクアウトチラシ',
+    cat: 'Flyer Design',
+    images: [
+      { src: 'images/work_fukubari_design.png', label: 'デザイン' },
+      { src: 'images/work_fukubari_trim.png', label: '入稿データ（トリム有）' }
+    ],
+    target: '20〜50代の主婦・働く女性',
+    concept: '福島の飲食店を応援するテイクアウトアプリ「フクバリ」の認知拡大。スマホで簡単にテイクアウトできる新しい体験を、チラシという親しみやすい媒体で届ける。',
+    tools: ['Illustrator', 'Photoshop'],
+    point: '「福島」の飲食店から商品と一緒に「幸福」を「お配りしたい」という願いを込めて「フクバリ」と命名された。その思いを「フク」と「バリ」に分解し、ロゴと文字の配置で自然にブランド名を印象付ける構成。「お店を探す→事前決済→受け取る」の3ステップをアイコンで視覚化。クーポンを左に配置しZの法則に沿った視線誘導を意識した。印刷入稿対応データも作成済み。'
+  },
+  tire: {
+    title: 'タイヤセール DM',
+    cat: 'Direct Mail',
+    images: [
+      { src: 'images/work_tire.png', label: '表面' },
+      { src: 'images/work_tire_back.png', label: '裏面（宛名面）' },
+      { src: 'images/work_tire_trim.png', label: '入稿データ（トリム有）' }
+    ],
+    target: '男性・女性・ファミリー層を幅広く網羅',
+    concept: '春タイヤの早期購入をお得感で促す販促DM。既存顧客への直接アプローチで購買行動を後押しする。',
+    tools: ['Illustrator', 'Photoshop'],
+    point: '春らしいピンクとグリーンでお出かけのイメージを演出。宛名面だけで「どこから・何の案内か」が即座に伝わる情報設計を徹底。表面はZの法則に基づき、左上にタイトル「春の大決算セール」、右下に20%OFFと3大特典を配置。視線の流れに沿って購買意欲が高まる構成を意識した。表裏両面の印刷入稿データも作成済み。'
+  },
+  winery: {
+    title: 'Winery Seya',
+    cat: 'Logo & Namecard',
+    images: [
+      { src: 'images/work_winery.png', label: 'ロゴ＋カラーチップ' },
+      { src: 'images/work_winery_logo.png', label: 'ロゴ提案8案' },
+      { src: 'images/work_winery_card_amber.png', label: '名刺（琥珀色）' },
+      { src: 'images/work_winery_card_bordeaux.png', label: '名刺（ボルドー色）' }
+    ],
+    target: '美容に敏感な30〜40代女性',
+    concept: '福島のオーガニックワインを世界に発信する。世界最古の製法「クヴェヴリ」で作られたワインの希少性と、地域との協調性をロゴで表現する。',
+    tools: ['Illustrator'],
+    point: '屋号「Seya」のSをブドウのツル、Yをワイングラスに見立てロゴに落とし込んだ。ワイン＝ボルドー色のイメージを覆し、クヴェヴリワインを象徴する琥珀色を採用。「クヴェヴリ」の壺を2つ配置することで地域とのパートナーシップを表現。名刺は白・黒・琥珀色の70:25:5でシンプルかつクラシカルに仕上げた。複数案を提案し、カラーバリエーションも制作。'
+  },
+  bugs: {
+    title: "Bug's Cafe",
+    cat: 'Shop Card',
+    images: [
+      { src: 'images/work_bugs.png', label: '縦型' },
+      { src: 'images/work_bugs_horizontal.png', label: '横型' }
+    ],
+    target: 'ひとりの時間を楽しみたい30〜60代男性',
+    concept: 'ゆったりとJazzが流れるカフェで、自分だけの時間を贅沢に過ごす体験をカード一枚で演出する。',
+    tools: ['Illustrator'],
+    point: 'オーナーからのオーダーは「線を1本だけ入れること」。その一言を設計の核に据え、引き算のデザインで店内の落ち着いた空気感を再現。余白を贅沢に使うことで、言葉ではなく空間が語るカードに仕上げた。縦・横2バリエーションを提案。'
+  }
+};
+
+// ========== モーダル制御 ==========
+let currentSlide = 0;
+let currentImages = [];
+
+function openModal(workKey) {
+  const work = works[workKey];
+  if (!work) return;
+
+  currentImages = work.images;
+  currentSlide = 0;
+
+  // タイトル・カテゴリ
+  document.getElementById('modalTitle').textContent = work.title;
+  document.getElementById('modalCat').textContent = work.cat;
+
+  // スライド生成
+  const slidesEl = document.getElementById('modalSlides');
+  slidesEl.innerHTML = work.images.map(img => `
+    <div class="modal__slide">
+      <img src="${img.src}" alt="${img.label}" loading="lazy">
+    </div>
+  `).join('');
+
+  // ドット＋矢印ナビ生成
+  const navEl = document.getElementById('modalNav');
+  if (work.images.length > 1) {
+    navEl.innerHTML = `
+      <button class="modal__arrow" id="prevBtn" onclick="changeSlide(-1)">← Prev</button>
+      ${work.images.map((img, i) => `
+        <button class="modal__dot ${i === 0 ? 'is-active' : ''}" onclick="goToSlide(${i})" title="${img.label}"></button>
+      `).join('')}
+      <button class="modal__arrow" id="nextBtn" onclick="changeSlide(1)">Next →</button>
+    `;
+    navEl.style.display = 'flex';
+  } else {
+    navEl.style.display = 'none';
+  }
+
+  // プロセス情報
+  document.getElementById('modalProcess').innerHTML = `
+    <div class="process-item">
+      <p class="process-item__label">Target</p>
+      <p class="process-item__text">${work.target}</p>
+    </div>
+    <div class="process-item">
+      <p class="process-item__label">Concept</p>
+      <p class="process-item__text">${work.concept}</p>
+    </div>
+    <div class="process-item">
+      <p class="process-item__label">Tools</p>
+      <div class="process-item__tools">
+        ${work.tools.map(t => `<span class="tool-chip">${t}</span>`).join('')}
+      </div>
+    </div>
+    <div class="process-item">
+      <p class="process-item__label">制作ポイント</p>
+      <p class="process-item__text">${work.point}</p>
+    </div>
+  `;
+
+  updateSlider();
+
+  // フルサイズボタン（Bakeryのみ）
+  const fullsizeEl = document.getElementById('modalFullsize');
+  if (work.fullsize) {
+    fullsizeEl.href = work.fullsize;
+    fullsizeEl.style.display = 'block';
+  } else {
+    fullsizeEl.style.display = 'none';
+  }
+
+  document.getElementById('modal').classList.add('is-open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('modal').classList.remove('is-open');
+  document.body.style.overflow = '';
+}
+
+function changeSlide(dir) {
+  currentSlide = Math.max(0, Math.min(currentImages.length - 1, currentSlide + dir));
+  updateSlider();
+}
+
+function goToSlide(index) {
+  currentSlide = index;
+  updateSlider();
+}
+
+function updateSlider() {
+  const slidesEl = document.getElementById('modalSlides');
+  slidesEl.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+  const dots = document.querySelectorAll('.modal__dot');
+  dots.forEach((dot, i) => dot.classList.toggle('is-active', i === currentSlide));
+
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  if (prevBtn) prevBtn.disabled = currentSlide === 0;
+  if (nextBtn) nextBtn.disabled = currentSlide === currentImages.length - 1;
+}
+
+// ========== イベントリスナー ==========
+document.querySelectorAll('[data-work]').forEach(el => {
+  el.addEventListener('click', () => openModal(el.dataset.work));
+});
+
+document.getElementById('modalClose').addEventListener('click', closeModal);
+
+document.getElementById('modal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeModal();
+  if (e.key === 'ArrowLeft') changeSlide(-1);
+  if (e.key === 'ArrowRight') changeSlide(1);
+});
+</script>
+</body>
+</html>
