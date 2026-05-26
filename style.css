@@ -232,7 +232,7 @@ a { color: inherit; text-decoration: none; }
 .hero__bg {
   position: absolute;
   inset: 0;
-  background-image: url('images/hero.png');
+  background-image: url('images/hero.webp');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -369,7 +369,7 @@ a { color: inherit; text-decoration: none; }
   left: -10%;
   width: 120%;
   height: 120%;
-  background-image: url('images/bg_munchkin.png');
+  background-image: url('images/bg_munchkin.webp');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -620,7 +620,7 @@ a { color: inherit; text-decoration: none; }
 /* Aboutタイムライン（張り紙スタイル） */
 .about__timeline {
   position: relative;
-  background-image: url('images/bg_notice_paper.png');
+  background-image: url('images/bg_notice_paper.webp');
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-color: transparent;
@@ -753,7 +753,7 @@ a { color: inherit; text-decoration: none; }
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url('images/bg_wood_sign.png');
+  background-image: url('images/bg_wood_sign.webp');
   background-size: 100% 100%;
   background-repeat: no-repeat;
   opacity: 0.4;
@@ -973,7 +973,7 @@ a { color: inherit; text-decoration: none; }
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url('images/bg_tin_sign.png');
+  background-image: url('images/bg_tin_sign.webp');
   background-size: 100% 100%;
   background-repeat: no-repeat;
   opacity: 0.45;
@@ -1204,7 +1204,7 @@ a { color: inherit; text-decoration: none; }
   left: -10%;
   width: 120%;
   height: 120%;
-  background-image: url('images/bg_about.png');
+  background-image: url('images/bg_about.webp');
   background-size: cover;
   background-position: center center;
   opacity: 0.13;
@@ -1228,7 +1228,7 @@ a { color: inherit; text-decoration: none; }
   left: -10%;
   width: 120%;
   height: 120%;
-  background-image: url('images/bg_works.png');
+  background-image: url('images/bg_works.webp');
   background-size: cover;
   background-position: center center;
   opacity: 0.13;
@@ -1252,7 +1252,7 @@ a { color: inherit; text-decoration: none; }
   left: -10%;
   width: 120%;
   height: 120%;
-  background-image: url('images/bg_skills.png');
+  background-image: url('images/bg_skills.webp');
   background-size: cover;
   background-position: center center;
   opacity: 0.13;
@@ -1276,7 +1276,7 @@ a { color: inherit; text-decoration: none; }
   left: -10%;
   width: 120%;
   height: 120%;
-  background-image: url('images/bg_contact.png');
+  background-image: url('images/bg_contact.webp');
   background-size: cover;
   background-position: center center;
   opacity: 0.13;
@@ -1407,7 +1407,7 @@ a { color: inherit; text-decoration: none; }
   display: block;
   width: 100px;
   height: 100px;
-  background-image: url('images/btn_top_normal.png');
+  background-image: url('images/btn_top_normal.webp');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -1416,7 +1416,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 .top-btn a:hover {
-  background-image: url('images/btn_top_hover.png');
+  background-image: url('images/btn_top_hover.webp');
   transform: translateY(-4px);
   filter: drop-shadow(2px 8px 10px rgba(0,0,0,0.3));
 }
@@ -1432,7 +1432,7 @@ a { color: inherit; text-decoration: none; }
 
 /* ホバー画像をプリロードしてちかちかを防ぐ */
 .top-btn::after {
-  content: url('images/btn_top_hover.png');
+  content: url('images/btn_top_hover.webp');
   display: none;
 }
 
